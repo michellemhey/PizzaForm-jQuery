@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Pizza</title>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+
+
+
+    <script type="text/javascript">
+
+    function prepza() {
+      var output = "This pizza will have: <br />";
+      var checkboxes = document.forms["pizzaform"].toppingcheck.length;
+        $("form :checkbox:checked").each(function() {
+          output += this.value + "<br />";   
+    });
+        $("form :radio:checked").each(function() {
+          output += this.value + "<br />";  
+      });
+        $("#orderinfo").html(output);
+      }
+    </script>
+
+</head>
+<body>
+  <form id="pizzaform" action="#">
+    <table>
+      <tr>
+        <td>Toppings</td>
+        <td>Crust</td></tr>
+      <tr>
+        <td><input type="checkbox" id="topping1" value="Sausage" name="toppingcheck">Sausage</td>
+        <td><input type="radio" name="crust" value="Regular"checked="checked" id="radio1">Regular</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="topping2" value="Pepperoni" name="toppingcheck">Pepperoni</td>
+        <td><input type="radio" name="crust" value="Deep Dish" id="radio2" />Deep Dish</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="topping3" value="Ham"name="toppingcheck">Ham</td>
+        <td><input type="radio" name="crust" value="Thin" id="radio3">Thin</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="topping4" value="Green Peppers" name="toppingcheck">Green Peppers</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="topping5" value="Mushrooms" name="toppingcheck">Mushrooms</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="topping6" value="Onions"name="toppingcheck">Onions</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="topping7" value="Pineapple" name="toppingcheck">Pineapple</td>
+        <td></td>
+      </tr>
+  </table>
+  <p><input type="button" id="prepBtn" name="prepBtn" value="Prep Pizza" onclick="prepza();"></p>
+  </form>
+  <div id="orderinfo"></div>
+  </body>
+</html>
+
